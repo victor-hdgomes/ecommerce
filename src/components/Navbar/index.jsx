@@ -18,7 +18,7 @@ const Navbar = () => {
                 </Left>
 
                 <Center>
-                    <Logo>LAMA.</Logo>
+                    <Logo>VICTOR.</Logo>
                 </Center>
 
                 <Right>
