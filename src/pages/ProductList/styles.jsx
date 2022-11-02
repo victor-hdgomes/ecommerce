@@ -26,6 +26,7 @@ export const Select = styled.select`
     padding: 10px;
     margin-left: 20px;
     border: none;
+    outline: 0;
 `
 
 export const Option = styled.option`
