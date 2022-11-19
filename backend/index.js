@@ -3,16 +3,10 @@ const express = require("express");
 
 const app = express();
 
-// Database Connection
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+// CORS
+const cors = require("cors");
 
-dotenv.config();
-
-mongoose
-    .connect(process.env.MONGO_URL)
-    .then(() => console.log("Mongoose is running"))
-    .catch((err) => console.log(err))
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
 // Config JSON Response
 app.use(express.json());
@@ -25,6 +19,4 @@ app.use("/api/users", UserRoutes);
 app.use("/api/auth", AuthRoutes);
 
 // Port
-app.listen(process.env.PORT || 5000, () => {
-    console.log("backend is running")
-})
+app.listen(5000)

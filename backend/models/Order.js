@@ -1,7 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require("../db/conn");
+const { Schema } = mongoose;
 
-const Order = new mongoose.Schema(
-    {
+const Order = mongoose.model(
+    "Order",
+    new Schema({
         userId: { type: String, required: true },
         products: [
             {
@@ -12,10 +14,7 @@ const Order = new mongoose.Schema(
         amount: { type: Number, required: true },
         address: { type: Object, required: true },
         status: { type: String, default: "pending" }
-    },
-    {
-        timestamps: true
-    }
+    }, { timestamps: true })
 )
 
-module.exports = mongoose.model("Order", Order);
+module.exports = Order
