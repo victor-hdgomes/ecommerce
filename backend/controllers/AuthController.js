@@ -1,5 +1,6 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
+const jwt = require("jsonwebtoken")
 
 module.exports = class UserController {
 
@@ -104,7 +105,12 @@ module.exports = class UserController {
         }
 
         // Login
-        res.status(200).json(user)
+        const accessToken = jwt.sign({
+            id: user._id,
+            isAdmin: user.isAdmin
+        }, process.env.JWT_SEC, { expiresIn: "3d" })
+
+        res.status(200).json({ user, accessToken })
     }
 
 }
