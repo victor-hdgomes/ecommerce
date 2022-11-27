@@ -1,0 +1,20 @@
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    background-color: teal;
+    color: #fff;
+    font-size: 2em;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.text{
+    font-weight: bold;
+    font-size: 1.2em;
+}
